@@ -6,6 +6,7 @@ public class Main {
         System.out.println(soma(5,3));
         System.out.println(calculo(2));
         System.out.println(inversao("bom dia"));
+        System.out.println(gerador(3));
     }
     // - Multiplicação de dois números naturais, através de somas sucessivas (Ex.: 6 ∗ 4 = 4 + 4 + 4 + 4 + 4 + 4).
     static int multi(int a, int b) {
@@ -46,5 +47,17 @@ public class Main {
             return inversao_tail(array, retornos - 1, chars);
             }
         return Arrays.toString(chars);
+    }
+    // - Gerador da sequência dada por:
+    //
+    //    F(1) = 1
+    //    F(2) = 2
+    //    F(n) = 2 ∗ F(n − 1) + 3 ∗ F(n − 2).
+    static int gerador(int n) {
+        return gerador_tail(n);
+    }
+    static int gerador_tail(int n) {
+        if (n == 1 || n == 2) return n;
+        else return (2 * gerador_tail(n - 1)) + gerador_tail(n - 2) ;
     }
 }
